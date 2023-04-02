@@ -5,6 +5,7 @@ const cors = require("cors");
 require("dotenv").config();
 
 const recipesRouter = require("./routes/api/recipes");
+const ingridientsRouter = require("./routes/api/ingridients");
 
 const app = express();
 
@@ -16,6 +17,7 @@ app.use(express.json());
 app.use(express.static("public"));
 
 app.use("/api/recipes", recipesRouter);
+app.use("/api/ingridients", ingridientsRouter);
 
 app.use((req, res) => {
   res.status(404).json({ message: "Not found" });
